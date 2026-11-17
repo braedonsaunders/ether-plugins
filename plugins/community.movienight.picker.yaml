@@ -1,0 +1,20 @@
+id: community.movienight.picker
+name: "Movie Night"
+summary: "A saved movie shortlist and a catalogue search tool for Ask Ether."
+description: "Rotate through real movie matches and keep a shortlist for tonight."
+kind: extension
+category: lists
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/movie-night
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - tools
+  - ui
+permissions:
+  catalog: read
+versions:
+  - version: 1.0.0
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/community.movienight.picker-v1.0.0/community.movienight.picker-1.0.0.etherpkg
+    sha256: 19cfbdf1d2ca0cb1bd8e91299794d43f49adad8d21302ebfc27af2290eaf6c50
+    releasedAt: "2026-11-16T00:00:00Z"
+    minEther: 0.3.14

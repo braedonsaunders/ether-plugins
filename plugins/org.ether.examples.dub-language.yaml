@@ -1,0 +1,20 @@
+id: org.ether.examples.dub-language
+name: "Dub language"
+summary: "Prefer releases with selected audio languages."
+kind: extension
+category: ranking
+icon: https://braedonsaunders.github.io/ether-plugins/icons/org.ether.examples.dub-language.svg
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/dub-language
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - ranking_step
+  - rule_condition
+permissions:
+  catalog: none
+versions:
+  - version: 1.0.0
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/org.ether.examples.dub-language-v1.0.0/org.ether.examples.dub-language-1.0.0.etherpkg
+    sha256: c2017969d2cb1513c92eed53c7017f1d658a084a354d7d64b092ac0d4f074c2d
+    releasedAt: "2026-11-16T00:00:00Z"
+    minEther: 0.3.14

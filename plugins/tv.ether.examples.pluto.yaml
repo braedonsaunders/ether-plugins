@@ -1,0 +1,21 @@
+id: tv.ether.examples.pluto
+name: "Pluto TV"
+summary: "Live channels and guide from Pluto TV."
+kind: livetv_source
+category: live_tv
+icon: https://braedonsaunders.github.io/ether-plugins/icons/tv.ether.examples.pluto.svg
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/pluto-tv
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - livetv_channels
+permissions:
+  network:
+    - "api.pluto.tv"
+    - "boot.pluto.tv"
+versions:
+  - version: 1.0.0
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/tv.ether.examples.pluto-v1.0.0/tv.ether.examples.pluto-1.0.0.etherpkg
+    sha256: 7ecb4caaffc101ed903ce2b058a73d56dd48f2556d377da533e60e5e7a5cd091
+    releasedAt: "2026-11-16T00:00:00Z"
+    minEther: 0.3.14

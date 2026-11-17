@@ -1,0 +1,21 @@
+id: org.ether.examples.home-assistant
+name: "Home Assistant"
+summary: "Connect playback events to Home Assistant."
+kind: extension
+category: automation
+icon: https://braedonsaunders.github.io/ether-plugins/icons/org.ether.examples.home-assistant.svg
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/home-assistant
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - events
+  - tools
+permissions:
+  secrets:
+    - "token"
+versions:
+  - version: 1.0.0
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/org.ether.examples.home-assistant-v1.0.0/org.ether.examples.home-assistant-1.0.0.etherpkg
+    sha256: 38a1a40be69c78aa22b3277ab660b2236af1c829ac65c75632f8291d2c6b950c
+    releasedAt: "2026-11-16T00:00:00Z"
+    minEther: 0.3.14

@@ -1,0 +1,76 @@
+name: Catalogue
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: catalogue-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      # Pinned Ether release that provides `ether plugin check` and
+      # `ether-release-sign index`. Override with the ETHER_REF variable.
+      ETHER_REF: ${{ vars.ETHER_REF || 'v0.3.13' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch the pinned Ether tools
+        uses: actions/checkout@v4
+        with:
+          repository: braedonsaunders/ether
+          ref: ${{ env.ETHER_REF }}
+          path: .ether
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: .ether/go.mod
+          cache-dependency-path: .ether/go.sum
+      - name: Build the tools
+        working-directory: .ether
+        run: |
+          mkdir -p "$RUNNER_TEMP/bin"
+          CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether" ./cmd/ether
+          CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether-release-sign" ./cmd/ether-release-sign
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      - name: Validate entries and copy
+        run: ether-release-sign index -check -dir plugins -out index.json
+      - name: Check every published package
+        run: python3 scripts/check_artifacts.py index.json
+      - name: Sign and verify the index
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          ETHER_CATALOGUE_PRIVATE_KEY: ${{ secrets.ETHER_CATALOGUE_PRIVATE_KEY }}
+          ETHER_CATALOGUE_PUBLIC_KEY: ${{ secrets.ETHER_CATALOGUE_PUBLIC_KEY }}
+        run: |
+          test -n "$ETHER_CATALOGUE_PRIVATE_KEY" && test -n "$ETHER_CATALOGUE_PUBLIC_KEY"
+          ether-release-sign index -in index.json
+          ether-release-sign index -verify -in index.json
+          mkdir -p site
+          cp index.json index.json.sig site/
+          cp -r icons site/icons
+          printf '<!doctype html><meta charset="utf-8"><title>Ether plugin marketplace</title><p>This is the signed Ether plugin catalogue. Open <b>Plugins › Marketplace</b> in Ether, or see <a href="https://github.com/braedonsaunders/ether-plugins">the repository</a>.</p>\n' > site/index.html
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        with:
+          path: site
+
+  publish:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

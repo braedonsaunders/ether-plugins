@@ -1,0 +1,21 @@
+id: tv.ether.examples.local-folders
+name: "Local folders"
+summary: "Match local video files to catalogue titles."
+kind: source
+category: sources
+icon: https://braedonsaunders.github.io/ether-plugins/icons/tv.ether.examples.local-folders.svg
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/local-folders
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - stream_source
+  - ui
+permissions:
+  folders: read
+  catalog: read
+versions:
+  - version: 1.0.0
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/tv.ether.examples.local-folders-v1.0.0/tv.ether.examples.local-folders-1.0.0.etherpkg
+    sha256: 74cb894dd1713c638e449f7a7a05ea1c8a020bb6ec750ef25efca0c91f3bb4af
+    releasedAt: "2026-11-16T00:00:00Z"
+    minEther: 0.3.14

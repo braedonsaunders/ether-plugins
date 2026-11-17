@@ -1,0 +1,23 @@
+id: community.tvmaze.catalog
+name: "TVmaze Native Catalog"
+summary: "Independent show descriptions, artwork and ratings from TVmaze."
+description: "Independent TVmaze catalogue discovery and native show metadata."
+kind: extension
+category: metadata
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/tvmaze
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - list_source
+  - metadata
+  - ui
+permissions:
+  network:
+    - "api.tvmaze.com"
+  collections: write
+versions:
+  - version: 1.0.0
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/community.tvmaze.catalog-v1.0.0/community.tvmaze.catalog-1.0.0.etherpkg
+    sha256: aa4c2575ca2042574745170bc5aa5ffb841757d7b02ef137730824c1c6ac4786
+    releasedAt: "2026-11-16T00:00:00Z"
+    minEther: 0.3.14

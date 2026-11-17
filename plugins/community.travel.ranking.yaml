@@ -1,0 +1,18 @@
+id: community.travel.ranking
+name: "Travel Mode"
+summary: "Prefers smaller cached files that fit the playing device."
+description: "A native ranking step for bandwidth-conscious playback, with a live scorecard."
+kind: extension
+category: ranking
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/travel-mode
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - ranking_step
+  - ui
+versions:
+  - version: 1.0.2
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/community.travel.ranking-v1.0.2/community.travel.ranking-1.0.2.etherpkg
+    sha256: 895f1094d8e94796752c7d9a2bf2c95dcb541eb1779c678607299a9c7937b9fb
+    releasedAt: "2026-11-16T00:00:00Z"
+    minEther: 0.3.14

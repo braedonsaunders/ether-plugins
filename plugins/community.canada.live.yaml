@@ -1,0 +1,24 @@
+id: community.canada.live
+name: "Canada Live"
+summary: "Canadian public affairs and news from the broadcasters’ public live streams."
+description: "Official Canadian public affairs and national/regional news streams."
+kind: livetv_source
+category: live_tv
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/canada-live
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - livetv_channels
+  - ui
+permissions:
+  network:
+    - "cpac-ca-live.cdn.vustreams.com"
+    - "content.news.corusappservices.com"
+    - "*.vustreams.com"
+    - "live.corusdigitaldev.com"
+versions:
+  - version: 1.0.1
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/community.canada.live-v1.0.1/community.canada.live-1.0.1.etherpkg
+    sha256: 0cba0d7c94a45e2f2c072900bf584a20b5a94bc4c9cb54116f68d3341f13547b
+    releasedAt: "2026-11-16T00:00:00Z"
+    minEther: 0.3.14

@@ -1,0 +1,20 @@
+id: community.october.halloween
+name: "October After Dark"
+summary: "Halloween favourites, visible on Home and in viewer collections only in October."
+description: "A Halloween collection and Home shelf that returns every October."
+kind: extension
+category: lists
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/october-after-dark
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - list_source
+  - ui
+permissions:
+  collections: write
+versions:
+  - version: 1.0.1
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/community.october.halloween-v1.0.1/community.october.halloween-1.0.1.etherpkg
+    sha256: 5efbfebbffaee0d0c1f8df6361fdf55b4f59a692159bf0019fca16460a860d80
+    releasedAt: "2026-11-16T00:00:00Z"
+    minEther: 0.3.14

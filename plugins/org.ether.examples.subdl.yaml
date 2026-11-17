@@ -1,0 +1,23 @@
+id: org.ether.examples.subdl
+name: "SubDL"
+summary: "Find subtitles with your SubDL account."
+kind: integration
+category: subtitles
+icon: https://braedonsaunders.github.io/ether-plugins/icons/org.ether.examples.subdl.svg
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/subdl
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - subtitles
+permissions:
+  network:
+    - "api.subdl.com"
+    - "dl.subdl.com"
+  secrets:
+    - "apiKey"
+versions:
+  - version: 1.0.0
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/org.ether.examples.subdl-v1.0.0/org.ether.examples.subdl-1.0.0.etherpkg
+    sha256: 7a07c2b22d8f9310efd35cdae82e5733acd7a2849ccbc17a680b1177bdde4a60
+    releasedAt: "2026-11-16T00:00:00Z"
+    minEther: 0.3.14

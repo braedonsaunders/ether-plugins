@@ -1,0 +1,23 @@
+id: org.ether.examples.wrapped
+name: "Ether Wrapped"
+summary: "Explore a viewer's year in titles."
+description: "Explore your year in titles."
+kind: extension
+category: insights
+icon: https://braedonsaunders.github.io/ether-plugins/icons/org.ether.examples.wrapped.svg
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/ether-wrapped
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - ui
+  - list_source
+permissions:
+  catalog: read
+  viewers:
+    watch_history: granted_viewers
+versions:
+  - version: 1.0.0
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/org.ether.examples.wrapped-v1.0.0/org.ether.examples.wrapped-1.0.0.etherpkg
+    sha256: a40caf281e05e484cb58dd38318a0468ed93981320d32dbdc75af7fba8705f06
+    releasedAt: "2026-11-16T00:00:00Z"
+    minEther: 0.3.14
