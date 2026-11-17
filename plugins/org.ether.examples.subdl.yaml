@@ -16,8 +16,8 @@ permissions:
   secrets:
     - "apiKey"
 versions:
-  - version: 1.0.0
-    url: https://github.com/braedonsaunders/ether-plugins/releases/download/org.ether.examples.subdl-v1.0.0/org.ether.examples.subdl-1.0.0.etherpkg
-    sha256: 7a07c2b22d8f9310efd35cdae82e5733acd7a2849ccbc17a680b1177bdde4a60
-    releasedAt: "2026-11-16T00:00:00Z"
+  - version: 1.0.1
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/org.ether.examples.subdl-v1.0.1/org.ether.examples.subdl-1.0.1.etherpkg
+    sha256: 7a287c1a8d0800057bd83c2aac56f81bf30f312447aae18401c64bbf3fb4c6df
+    releasedAt: "2026-11-17T00:00:00Z"
     minEther: 0.3.14

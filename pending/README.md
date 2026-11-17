@@ -1,1 +1,1 @@
-First-party plugins waiting for an end-to-end check on a real Ether server. They return to `plugins/` one at a time, each after its main feature has been shown to work.
+Plugins not listed in the marketplace. Home Assistant needs a separate program running beside Ether, so it is not a one-click install.

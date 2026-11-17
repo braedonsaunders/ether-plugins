@@ -14,8 +14,8 @@ permissions:
     - "api.pluto.tv"
     - "boot.pluto.tv"
 versions:
-  - version: 1.0.0
-    url: https://github.com/braedonsaunders/ether-plugins/releases/download/tv.ether.examples.pluto-v1.0.0/tv.ether.examples.pluto-1.0.0.etherpkg
-    sha256: 7ecb4caaffc101ed903ce2b058a73d56dd48f2556d377da533e60e5e7a5cd091
-    releasedAt: "2026-11-16T00:00:00Z"
+  - version: 1.0.1
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/tv.ether.examples.pluto-v1.0.1/tv.ether.examples.pluto-1.0.1.etherpkg
+    sha256: f92bf46d2b0ee2be1e1c1dcdfb89ef3bd1ae651aec8ace303e3132fb89011b09
+    releasedAt: "2026-11-17T00:00:00Z"
     minEther: 0.3.14
