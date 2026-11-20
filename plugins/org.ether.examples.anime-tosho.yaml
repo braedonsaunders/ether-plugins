@@ -17,4 +17,4 @@ versions:
     url: https://github.com/braedonsaunders/ether-plugins/releases/download/org.ether.examples.anime-tosho-v1.0.0/org.ether.examples.anime-tosho-1.0.0.etherpkg
     sha256: 3f910a0b1e8150421b13e828a13d85ce598b3da5be56f0c2a7ce6089dda8e2fa
     releasedAt: "2026-11-20T00:00:00Z"
-    minEther: 0.3.17
+    minEther: 0.3.16
