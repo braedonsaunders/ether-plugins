@@ -1,0 +1,20 @@
+id: org.ether.examples.anime-tosho
+name: "Anime Tosho"
+summary: "One-click anime indexer for public torrents and Usenet NZBs, no API key needed."
+description: "Searches Anime Tosho NEW (animetosho.net), an open mirror of public anime releases from Nyaa, TokyoTosho and nekoBT. Anime-aware: AniDB, MyAnimeList, Kitsu, TMDB, TVDB and IMDb IDs, absolute episode numbers and season packs. Returns torrents, NZBs (using your Usenet provider) or both."
+kind: source
+category: sources
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/anime-tosho
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - stream_source
+permissions:
+  network:
+    - "feed.animetosho.net"
+versions:
+  - version: 1.0.0
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/org.ether.examples.anime-tosho-v1.0.0/org.ether.examples.anime-tosho-1.0.0.etherpkg
+    sha256: 3f910a0b1e8150421b13e828a13d85ce598b3da5be56f0c2a7ce6089dda8e2fa
+    releasedAt: "2026-11-20T00:00:00Z"
+    minEther: 0.3.17

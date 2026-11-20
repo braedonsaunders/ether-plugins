@@ -1,0 +1,21 @@
+id: org.ether.english-dubs
+name: "English dubbed anime"
+summary: "Anime series and films that have an English dub, for rows, collections and library rules."
+description: "Lists anime with a confirmed English dub (and, optionally, dubs in progress) from the community MAL-Dubs index, fetched at runtime and mapped to TMDB, TVDB and IMDb through Fribb/anime-lists. Refreshes daily with conditional requests."
+kind: extension
+category: lists
+repo: https://github.com/braedonsaunders/ether/tree/main/sdk/examples/english-dubs
+author: Ether
+license: GPL-3.0-only
+capabilities:
+  - list_source
+  - ui
+permissions:
+  network:
+    - "raw.githubusercontent.com"
+versions:
+  - version: 1.0.0
+    url: https://github.com/braedonsaunders/ether-plugins/releases/download/org.ether.english-dubs-v1.0.0/org.ether.english-dubs-1.0.0.etherpkg
+    sha256: 74abaa2106418c512540d3504c7505e3de5d439eed23a319bb924ef62fafe883
+    releasedAt: "2026-11-20T00:00:00Z"
+    minEther: 0.3.16
