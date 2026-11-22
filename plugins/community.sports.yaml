@@ -1,0 +1,22 @@
+id: community.sports
+name: "Sports"
+summary: "Leagues, seasons and events for wrestling, combat sports, football and motorsport as a Sports library."
+description: "Adds a Sports library: leagues as shows, seasons, and events as episodes. Schedules come from the sportarr.net public metadata service; events are matched against the sources the owner has configured."
+kind: content
+repo: https://github.com/EsmailELBoBDev2/ether-community-plugins/tree/main/sports
+author: Ether community
+license: MIT
+capabilities:
+  - catalog_provider
+  - kind_resolver
+  - matcher
+permissions:
+  network:
+    - "sportarr.net"
+  sources: acquire
+versions:
+  - version: 0.1.2
+    url: https://github.com/EsmailELBoBDev2/ether-community-plugins/releases/download/community.sports-v0.1.2/community.sports-0.1.2.etherpkg
+    sha256: 9aed41f3603c716033ad95db4941e50a70d4d71aba800c1da9d0c59ef1f00417
+    releasedAt: "2026-11-22T00:00:00Z"
+    minEther: 0.3.18

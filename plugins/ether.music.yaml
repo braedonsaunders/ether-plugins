@@ -1,0 +1,24 @@
+id: ether.music
+name: "Music"
+summary: "Music library with artists, albums and tracks from Deezer and MusicBrainz."
+description: "Curated music discovery, live catalogue search across artists, albums and tracks, and album-first playback through the sources the owner has configured."
+kind: content
+repo: https://github.com/EsmailELBoBDev2/ether-community-plugins/tree/main/music
+capabilities:
+  - catalog_provider
+  - kind_resolver
+  - matcher
+permissions:
+  network:
+    - "api.deezer.com"
+    - "musicbrainz.org"
+    - "coverartarchive.org"
+    - "*.archive.org"
+    - "lrclib.net"
+  sources: acquire
+versions:
+  - version: 0.1.16
+    url: https://github.com/EsmailELBoBDev2/ether-community-plugins/releases/download/ether.music-v0.1.16/ether.music-0.1.16.etherpkg
+    sha256: 00b7b3c073295f66b8eb4ccc69d5d04fc71c5508a5bb29e6d839d9e83166a414
+    releasedAt: "2026-11-22T00:00:00Z"
+    minEther: 0.3.18
