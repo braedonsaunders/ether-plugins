@@ -1,0 +1,25 @@
+id: community.sports-replays
+name: "Sports Replays"
+summary: "Replays of finished sports events as a library of leagues, seasons and events, found through your indexers."
+description: "Adds a Sports Replays library with replays of finished events: leagues as shows, seasons, and events as episodes. Schedules come from the sportarr.net public metadata service, or from TheSportsDB with the owner's own API key; a recording is searched for through the owner's indexers when a viewer presses play. For live games, scores and channels use Ether's built-in Sports plugin."
+kind: content
+repo: https://github.com/EsmailELBoBDev2/ether-community-plugins/tree/main/sports-replays
+author: Ether community
+license: MIT
+capabilities:
+  - catalog_provider
+  - kind_resolver
+  - matcher
+permissions:
+  network:
+    - "sportarr.net"
+    - "www.thesportsdb.com"
+  sources: search
+  secrets:
+    - theSportsDbKey
+versions:
+  - version: 0.1.4
+    url: https://github.com/EsmailELBoBDev2/ether-community-plugins/releases/download/community.sports-replays-v0.1.4/community.sports-replays-0.1.4.etherpkg
+    sha256: 4da2ff5a50bf608d07e2bcec29cfb8296c26ae3fa35d495e1304cb68bbb9f76c
+    releasedAt: "2026-11-23T00:00:00Z"
+    minEther: 0.3.18
