@@ -1,0 +1,22 @@
+id: org.ether.sports
+name: Sports
+summary: "Live scores, standings and schedules from ESPN."
+description: Live scores, standings and schedules across 17 leagues from ESPN.
+kind: extension
+category: live_tv
+icon: https://braedonsaunders.github.io/ether-plugins/icons/org.ether.sports.svg
+repo: https://github.com/braedonsaunders/ether-plugin-sports
+author: Ether
+license: GPL-3.0-only
+capabilities:
+    - live_events
+permissions:
+    network:
+        - site.api.espn.com
+        - site.web.api.espn.com
+versions:
+    - version: 1.0.0
+      url: https://github.com/braedonsaunders/ether-plugin-sports/releases/download/v1.0.0/org.ether.sports-1.0.0.etherpkg
+      sha256: 7f4dbcf8a16c207d0e3bac862bf5518e0374e85ae5665dd93dd12f561dba4049
+      releasedAt: "2026-11-23T17:53:21Z"
+      minEther: 0.3.19

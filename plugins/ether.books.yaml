@@ -1,0 +1,38 @@
+id: ether.books
+name: Books and audiobooks
+summary: "Browse, read and listen to books and audiobooks from open catalogs."
+description: Adds Books and Audiobooks libraries powered by Open Library, Hardcover, Audible catalog metadata, Standard Ebooks and LibriVox, with free public-domain reading and listening plus release matching through configured sources.
+kind: content
+category: sources
+icon: https://braedonsaunders.github.io/ether-plugins/icons/ether.books.svg
+repo: https://github.com/braedonsaunders/ether-plugin-books
+author: Ether
+license: MIT
+capabilities:
+    - catalog_provider
+    - kind_resolver
+    - matcher
+    - ui
+permissions:
+    network:
+        - api.hardcover.app
+        - assets.hardcover.app
+        - openlibrary.org
+        - covers.openlibrary.org
+        - api.audible.com
+        - m.media-amazon.com
+        - standardebooks.org
+        - librivox.org
+        - archive.org
+        - '*.archive.org'
+        - gutendex.com
+        - www.gutenberg.org
+    sources: search
+    secrets:
+        - hardcover_token
+versions:
+    - version: 1.0.6
+      url: https://github.com/braedonsaunders/ether-plugin-books/releases/download/v1.0.6/ether.books-1.0.6.etherpkg
+      sha256: ef5cf4973655ccac961a318a23eca5f03ac12489b5bf69857362fe28534705db
+      releasedAt: "2026-11-23T17:53:22Z"
+      minEther: 0.3.18

@@ -1,0 +1,5 @@
+# First-party plugin repositories. Their GitHub releases are added to the
+# catalogue automatically by .github/workflows/sync-first-party.yml.
+braedonsaunders/ether-plugin-music
+braedonsaunders/ether-plugin-books
+braedonsaunders/ether-plugin-sports

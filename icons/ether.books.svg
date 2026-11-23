@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#182234"/>
+  <path d="M14 21C14 18.79 15.79 17 18 17H28C30.21 17 32 18.79 32 21V46C32 44.34 30.66 43 29 43H18C15.79 43 14 41.21 14 39V21Z" stroke="#E8EDF7" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M50 21C50 18.79 48.21 17 46 17H36C33.79 17 32 18.79 32 21V46C32 44.34 33.34 43 35 43H46C48.21 43 50 41.21 50 39V21Z" stroke="#E8EDF7" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M22 48.5C22 44.5 26.5 41.5 32 41.5C37.5 41.5 42 44.5 42 48.5" stroke="#60A5FA" stroke-width="2.6" stroke-linecap="round"/>
+  <rect x="19.5" y="47" width="4.5" height="7" rx="2.25" fill="#60A5FA"/>
+  <rect x="40" y="47" width="4.5" height="7" rx="2.25" fill="#60A5FA"/>
+  <line x1="19" y1="24" x2="27" y2="24" stroke="#93C5FD" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="19" y1="29.5" x2="27" y2="29.5" stroke="#93C5FD" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="37" y1="24" x2="45" y2="24" stroke="#93C5FD" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="37" y1="29.5" x2="45" y2="29.5" stroke="#93C5FD" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

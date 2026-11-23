@@ -1,0 +1,29 @@
+id: ether.music
+name: Music
+summary: "Curated music, albums, and video concerts across your sources."
+description: Curated music discovery, live catalogue search across artists, albums, tracks and video concerts, and playback through your Ether indexers and debrid sources.
+kind: content
+category: sources
+icon: https://braedonsaunders.github.io/ether-plugins/icons/ether.music.svg
+repo: https://github.com/braedonsaunders/ether-plugin-music
+author: Ether
+license: MIT
+capabilities:
+    - catalog_provider
+    - kind_resolver
+    - matcher
+permissions:
+    network:
+        - api.deezer.com
+        - musicbrainz.org
+        - coverartarchive.org
+        - '*.archive.org'
+        - lrclib.net
+        - v3.sg.media-imdb.com
+    sources: search
+versions:
+    - version: 0.2.5
+      url: https://github.com/braedonsaunders/ether-plugin-music/releases/download/v0.2.5/ether.music-0.2.5.etherpkg
+      sha256: d92b74fc50a232caf4837cf66a3616a6c4373488c9c6d2eb8336a95740b19bc6
+      releasedAt: "2026-11-23T17:53:18Z"
+      minEther: 0.3.19

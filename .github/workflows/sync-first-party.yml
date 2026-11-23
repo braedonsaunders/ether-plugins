@@ -1,0 +1,64 @@
+name: Sync first-party plugins
+
+# Adds new releases of the repos in first-party.txt to the catalogue through a
+# pull request. The catalogue workflow does not run on pull requests opened
+# with GITHUB_TOKEN, so this job runs the same checks before opening one.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-first-party
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      ETHER_REF: ${{ vars.ETHER_REF || 'v0.3.13' }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find new releases
+        id: sync
+        run: |
+          changed=$(python3 scripts/sync_first_party.py)
+          echo "$changed"
+          { echo 'changed<<EOF'; echo "$changed"; echo EOF; } >> "$GITHUB_OUTPUT"
+      - name: Fetch the pinned Ether tools
+        if: steps.sync.outputs.changed != ''
+        uses: actions/checkout@v4
+        with:
+          repository: braedonsaunders/ether
+          ref: ${{ env.ETHER_REF }}
+          path: .ether
+      - uses: actions/setup-go@v5
+        if: steps.sync.outputs.changed != ''
+        with:
+          go-version-file: .ether/go.mod
+          cache-dependency-path: .ether/go.sum
+      - name: Check the updated catalogue
+        if: steps.sync.outputs.changed != ''
+        run: |
+          (cd .ether && CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether" ./cmd/ether && CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether-release-sign" ./cmd/ether-release-sign)
+          export PATH="$RUNNER_TEMP/bin:$PATH"
+          rm -rf .ether
+          ether-release-sign index -check -dir plugins -out index.json
+          python3 scripts/check_artifacts.py index.json
+          rm -f index.json
+      - name: Open the pull request
+        if: steps.sync.outputs.changed != ''
+        run: |
+          branch="sync/first-party-$(date -u +%Y%m%d%H%M)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add plugins
+          git commit -m "Add first-party plugin releases" -m "${{ steps.sync.outputs.changed }}"
+          git push origin "$branch"
+          gh pr create --title "First-party plugin releases: $(echo "${{ steps.sync.outputs.changed }}" | paste -sd ', ')" --body "Added automatically from the plugin repositories' GitHub releases. The SHA-256 is of the release asset, and the catalogue checks passed in the sync run. Merge to publish." --base main --head "$branch"
