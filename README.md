@@ -28,3 +28,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the entry format and review rules.
 ## How the index is built
 
 On every merge to `main`, CI compiles `plugins/*.yaml` into `index.json`, signs it with the catalogue key (`ETHER_CATALOGUE_PRIVATE_KEY`, held only as a repository secret), verifies the signature, and publishes both files to GitHub Pages. Ether verifies the signature against the public key it ships with, so a tampered index or package is refused.
+
+## First-party plugins
+
+Ether's own plugins (Music, Books and audiobooks, Sports) live in their own repositories, which are listed in `first-party.txt`. Tagging a release there builds the package. Every hour, `sync-first-party.yml` adds any new release here as a pull request that has already passed the catalogue checks. Merging it publishes the update.
