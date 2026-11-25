@@ -10,10 +10,12 @@ author: Ether
 license: GPL-3.0-only
 capabilities:
     - live_events
+    - screens
 permissions:
     network:
         - site.api.espn.com
         - site.web.api.espn.com
+        - a.espncdn.com
 versions:
     - version: 1.0.0
       url: https://github.com/braedonsaunders/ether-plugin-sports/releases/download/v1.0.0/org.ether.sports-1.0.0.etherpkg

@@ -20,7 +20,8 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     env:
-      ETHER_REF: ${{ vars.ETHER_REF || 'v0.3.13' }}
+      ETHER_REF: ${{ vars.ETHER_REF || 'v0.3.21' }}
+      LEGACY_ETHER_REF: ${{ vars.LEGACY_ETHER_REF || 'v0.3.20' }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
@@ -37,6 +38,13 @@ jobs:
           repository: braedonsaunders/ether
           ref: ${{ env.ETHER_REF }}
           path: .ether
+      - name: Fetch the legacy Ether kit
+        if: steps.sync.outputs.changed != '' && env.LEGACY_ETHER_REF != '' && env.LEGACY_ETHER_REF != env.ETHER_REF
+        uses: actions/checkout@v4
+        with:
+          repository: braedonsaunders/ether
+          ref: ${{ env.LEGACY_ETHER_REF }}
+          path: .ether-legacy
       - uses: actions/setup-go@v5
         if: steps.sync.outputs.changed != ''
         with:
@@ -45,9 +53,15 @@ jobs:
       - name: Check the updated catalogue
         if: steps.sync.outputs.changed != ''
         run: |
+          mkdir -p "$RUNNER_TEMP/bin"
           (cd .ether && CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether" ./cmd/ether && CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether-release-sign" ./cmd/ether-release-sign)
+          if [ -d .ether-legacy ]; then
+            (cd .ether-legacy && CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether-legacy" ./cmd/ether)
+            export ETHER_LEGACY_BIN="$RUNNER_TEMP/bin/ether-legacy"
+            export ETHER_LEGACY_MAX_MIN_ETHER="${LEGACY_ETHER_REF#v}"
+          fi
           export PATH="$RUNNER_TEMP/bin:$PATH"
-          rm -rf .ether
+          rm -rf .ether .ether-legacy
           ether-release-sign index -check -dir plugins -out index.json
           python3 scripts/check_artifacts.py index.json
           rm -f index.json

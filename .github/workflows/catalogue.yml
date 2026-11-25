@@ -19,7 +19,10 @@ jobs:
     env:
       # Pinned Ether release that provides `ether plugin check` and
       # `ether-release-sign index`. Override with the ETHER_REF variable.
-      ETHER_REF: ${{ vars.ETHER_REF || 'v0.3.13' }}
+      ETHER_REF: ${{ vars.ETHER_REF || 'v0.3.21' }}
+      # Optional fallback Ether release for legacy plugin versions predating
+      # a hard cut (e.g. Sports 1.0.x sections before 0.3.21).
+      LEGACY_ETHER_REF: ${{ vars.LEGACY_ETHER_REF || 'v0.3.20' }}
     steps:
       - uses: actions/checkout@v4
       - name: Fetch the pinned Ether tools
@@ -28,16 +31,27 @@ jobs:
           repository: braedonsaunders/ether
           ref: ${{ env.ETHER_REF }}
           path: .ether
+      - name: Fetch the legacy Ether kit
+        if: env.LEGACY_ETHER_REF != '' && env.LEGACY_ETHER_REF != env.ETHER_REF
+        uses: actions/checkout@v4
+        with:
+          repository: braedonsaunders/ether
+          ref: ${{ env.LEGACY_ETHER_REF }}
+          path: .ether-legacy
       - uses: actions/setup-go@v5
         with:
           go-version-file: .ether/go.mod
           cache-dependency-path: .ether/go.sum
       - name: Build the tools
-        working-directory: .ether
         run: |
           mkdir -p "$RUNNER_TEMP/bin"
-          CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether" ./cmd/ether
-          CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether-release-sign" ./cmd/ether-release-sign
+          (cd .ether && CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether" ./cmd/ether && CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether-release-sign" ./cmd/ether-release-sign)
+          if [ -d .ether-legacy ]; then
+            (cd .ether-legacy && CGO_ENABLED=0 go build -o "$RUNNER_TEMP/bin/ether-legacy" ./cmd/ether)
+            echo "ETHER_LEGACY_BIN=$RUNNER_TEMP/bin/ether-legacy" >> "$GITHUB_ENV"
+            echo "ETHER_LEGACY_MAX_MIN_ETHER=${LEGACY_ETHER_REF#v}" >> "$GITHUB_ENV"
+          fi
+          rm -rf .ether .ether-legacy
           echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
       - name: Validate entries and copy
         run: ether-release-sign index -check -dir plugins -out index.json

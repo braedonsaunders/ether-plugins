@@ -12,6 +12,7 @@ capabilities:
     - catalog_provider
     - kind_resolver
     - matcher
+    - frontend_adapter
 permissions:
     network:
         - api.deezer.com
