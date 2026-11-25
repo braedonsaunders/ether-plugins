@@ -23,6 +23,11 @@ permissions:
         - v3.sg.media-imdb.com
     sources: search
 versions:
+    - version: 0.3.1
+      url: https://github.com/braedonsaunders/ether-plugin-music/releases/download/v0.3.1/ether.music-0.3.1.etherpkg
+      sha256: 5ddba6a6679e3404d549757228098aadf5e8677f96b348f973c4b78fafafe029
+      releasedAt: "2026-11-25T14:31:40Z"
+      minEther: 0.3.21
     - version: 0.2.6
       url: https://github.com/braedonsaunders/ether-plugin-music/releases/download/v0.2.6/ether.music-0.2.6.etherpkg
       sha256: e28cadb2d63e5d7f2287739c3d00312dccfae904dd7da6e0313836c1d583f34a

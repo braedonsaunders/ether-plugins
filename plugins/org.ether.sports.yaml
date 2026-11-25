@@ -17,6 +17,11 @@ permissions:
         - site.web.api.espn.com
         - a.espncdn.com
 versions:
+    - version: 2.0.0
+      url: https://github.com/braedonsaunders/ether-plugin-sports/releases/download/v2.0.0/org.ether.sports-2.0.0.etherpkg
+      sha256: 7869f5fdf5b44a740112e5abd23ac5fe07e0f6f6d5460b05aa7ccd6b56463c50
+      releasedAt: "2026-11-25T14:31:33Z"
+      minEther: 0.3.21
     - version: 1.0.0
       url: https://github.com/braedonsaunders/ether-plugin-sports/releases/download/v1.0.0/org.ether.sports-1.0.0.etherpkg
       sha256: 7f4dbcf8a16c207d0e3bac862bf5518e0374e85ae5665dd93dd12f561dba4049
