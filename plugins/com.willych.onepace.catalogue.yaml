@@ -18,6 +18,11 @@ permissions:
     sources: search
     catalog: read
 versions:
+    - version: 1.0.2
+      url: https://github.com/willych/ether-plugin-one-pace/releases/download/v1.0.2/com.willych.onepace.catalogue-1.0.2.etherpkg
+      sha256: 17ace27cf50015d860d5c5b087e33dee5dd9519c243dbc2b3d7adc8b07428f63
+      releasedAt: "2026-11-27T03:56:20Z"
+      minEther: 0.3.22
     - version: 1.0.1
       url: https://github.com/willych/ether-plugin-one-pace/releases/download/v1.0.1/com.willych.onepace.catalogue-1.0.1.etherpkg
       sha256: 7ef81b353aba57f921f4034226219d38177c93d6c96ab37f95745ac2f738363e
