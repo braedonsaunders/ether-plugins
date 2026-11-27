@@ -1,0 +1,30 @@
+id: com.willych.onepace.catalogue
+name: One Pace
+summary: "Every One Pace arc and episode, played through your providers."
+description: One Pace is a fan edit of One Piece that isn't listed on TMDB or TheTVDB. This adds it as a library of arcs and episodes from the OnePacerr API, played through your providers.
+kind: content
+category: sources
+icon: https://braedonsaunders.github.io/ether-plugins/icons/com.willych.onepace.catalogue.svg
+repo: https://github.com/willych/ether-plugin-one-pace
+author: willych
+license: MIT
+capabilities:
+    - catalog_provider
+    - kind_resolver
+    - ui
+permissions:
+    network:
+        - onepacerr.com
+    sources: search
+    catalog: read
+versions:
+    - version: 1.0.4
+      url: https://github.com/willych/ether-plugin-one-pace/releases/download/v1.0.4/com.willych.onepace.catalogue-1.0.4.etherpkg
+      sha256: e31b9a2f924494b3ef96c7a6b1bacbe16bab88dd01598870184652f7e62777b3
+      releasedAt: "2026-11-27T09:19:19Z"
+      minEther: 0.3.22
+    - version: 1.0.3
+      url: https://github.com/willych/ether-plugin-one-pace/releases/download/v1.0.3/com.willych.onepace.catalogue-1.0.3.etherpkg
+      sha256: 78ff1b329ec85caa9140bfcb7c1f869c5ff694f512b5ce26ac68ee3356c3a0b4
+      releasedAt: "2026-11-27T08:35:20Z"
+      minEther: 0.3.22
